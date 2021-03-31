@@ -22,7 +22,6 @@ class Expiry {
 			$dateTime = new DateTime();
 			$dateTime->setTimestamp($dateTime->getTimestamp() + intval($format));
 			$this->date = $dateTime;
-			return true;
 		}
 		$this->date = new DateTime();
 		$second = 0;
@@ -60,7 +59,7 @@ class Expiry {
 						if(!is_numeric($formatChars[$i + 1])){
 							switch(strtolower($formatChars[$i + 1])){
 								case 'o':
-									if(intval($currentChars) <= 0){
+									if(intval($currentChars) < 1){
 										throw new InvalidArgumentException($this->negval);
 									}
 									$month = intval($currentChars);
