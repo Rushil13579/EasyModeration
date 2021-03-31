@@ -36,7 +36,7 @@ Commands | Aliases | Permissions | Usage
 /freeze | none | easymoderation.freeze | /freeze <name>
 /unfreeze | none | easymoderation.unfreeze | /unfreeze <name>
 
-## Explanation of a few commands
+## Explanation
 - For any time argument, y -> years, mo -> months, d -> days, h -> hours, m -> minutes, s ->seconds. Eg: /tempban Ign 1y6mo Reason
 - Incase of mute & ipmute, use [inf, infinite, perm, permanent, forever] for a perm mute/ipmute
 - /mutelist gives a list of all muted players on the server. /mutelist ips will give a list of all muted ips on the server
@@ -50,6 +50,7 @@ Commands | Aliases | Permissions | Usage
 - Punishment tracker (see past permissions)
 - Auto ban (specific number of warns leads to a ban/mute)
 - Discord webhooks for commands run, joins, chat, leaves, kills
+- Clear chat
 
 ## Credits
 - [Rushil13579](https://github.com/Rushil13579)
