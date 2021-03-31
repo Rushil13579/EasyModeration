@@ -49,6 +49,7 @@ Commands | Aliases | Permissions | Usage
 - Invsee feature for staff
 - Punishment tracker (see past permissions)
 - Auto ban (specific number of warns leads to a ban/mute)
+- Discord webhooks for commands run, joins, chat, leaves, kills
 
 ## Credits
 - [Rushil13579](https://github.com/Rushil13579)
