@@ -22,6 +22,16 @@ permissions:
     description: Allows a player to use the kick command!
   easymoderation.kickall:
     description: Allows a player to use the kickall command!
+  easymoderation.ipmute:
+    description: Allows a player to use the ipmute command!
+  easymoderation.ipunmute:
+    description: Allows a player to use the ipunmute command!
+  easymoderation.mute:
+    description: Allows a player to use the mute command!
+  easymoderation.unmute:
+    description: Allows a player to use the unmute command!
+  easymoderation.mutelist:
+    description: Allows a player to use the mutelist command!
   easymoderation.mutechat:
     description: Allows a player to use the mutechat command!
   easymoderation.mutechat.bypass:
