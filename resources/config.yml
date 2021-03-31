@@ -1,0 +1,197 @@
+# Configuration file for EasyModeration by Rushil13579 | Rushil#2326
+
+# Version [DO NOT TOUCH]
+plugin-version: '1.0.0'
+
+
+# ========== CHAT CENSOR ==========
+
+
+# Words that will be censored in player chats [can be extends as long as you wish] [keep empty to disable]
+# Give permission 'easymoderation.chatcensor.bypass' to bypass it
+chat-censor: ['fuck', '.com', 'discord.gg']
+
+
+# ========== CHAT INTERVAL ==========
+
+
+# Interval for chatting [Set to 0 to disable]
+# Give permission 'easymoderation.chatinterval.bypass' to bypass it [In seconds]
+chat-interval: 2
+
+
+# ========== REPORT COOLDOWN ==========
+
+
+# Cooldown for the report command [In seconds]
+report-cooldown: 10
+
+
+# ========== FREEZE ==========
+
+
+# Toggle the Freeze Tag [The tag above a player's head when he/she is frozen]
+freeze-tag: true
+
+# Set this to false if you want frozen players to be able to use the chat
+disable-chat-while-frozen: true
+
+# Set this to false if you want to allow damaging and taking damage for frozen players
+frozen-damage-disabled: true
+
+# List of commands that are disabled while frozen [Leave empty to disable]
+# To disable all commands put '*'
+frozen-disabled-commands:
+  - 'msg'
+  - 'w'
+  - 'tell'
+
+# List of commands that are executed when a frozen player quits [Use {player} for the frozen player] [Leave empty to disable]
+frozen-quit-commands:
+  - 'permban {player} Frozen Quit'
+  - 'say {player} was perm banned as they quit while being frozen!'
+
+
+# ========== WEBHOOKS ==========
+
+
+# Name of the webhook
+webhook-name: 'EasyModeration'
+
+
+# ===== IP BANS =====
+
+
+# Recommended to keep ipban & ipunban webhooks in private channels to prevent leaking ips of your players
+# Set this to 'enabled' if you want discord posts everytime a player gets ipbanned
+ipban-discord-post: enabled
+
+# Webhook url
+ipban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets ipbanned
+tempipban-discord-post: enabled
+
+# Webhook url
+tempipban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets ipunbanned
+ipunban-discord-post: enabled
+
+# Webhook url
+ipunban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== NORMAL BANS =====
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets permbanned
+permban-discord-post: enabled
+
+# Webhook url
+permban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets tempbanned
+tempban-discord-post: enabled
+
+# Webhook url
+tempban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets unbanned
+unban-discord-post: enabled
+
+# Webhook url
+unban-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== KICKS =====
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets kicked
+kick-discord-post: enabled
+
+# Webhook url
+kick-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime the kickall command is run
+kickall-discord-post: enabled
+
+# Webhook url
+kickall-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== IP MUTES =====
+
+
+# Recommended to keep ipmute & ipunmute webhooks in private channels to prevent leaking ips of your players
+# Set this to 'enabled' if you want discord posts everytime a player gets ipmuted
+ipmute-discord-post: enabled
+
+# Webhook url
+ipmute-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets ipunmuted
+ipunmute-discord-post: enabled
+
+# Webhook url
+ipunmute-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== MUTES =====
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets muted
+mute-discord-post: enabled
+
+# Webhook url
+mute-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets unmuted
+unmute-discord-post: enabled
+
+# Webhook url
+unmute-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# Set this to 'enabled' if you want discord posts everytime the chat gets muted
+mutechat-discord-post: enabled
+
+# Webhook url
+mutechat-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== WARNS =====
+
+
+# Set this to 'enabled' if you want discord posts everytime a player gets warned
+warn-discord-post: enabled
+
+# Webhook url
+warn-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== REPORTS =====
+
+
+# Set this to 'enabled' if you want discord posts everytime the chat gets muted
+report-discord-post: enabled
+
+# Webhook url
+report-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y
+
+
+# ===== CHAT SENSOR =====
+
+
+# Set this to 'enabled' if you want discord posts everytime a player's message gets censored
+chat-censor-discord-post: enabled
+
+# Webhook url
+chat-censor-webhook: https://discord.com/api/webhooks/825780283365523456/o-yWCgL-TyTCxxZ-SHcMZhicVyhWHPk2n4n4PY6QdKrAFm9aUsfRJEXGFe7sAhrTEg9y

@@ -1,0 +1,48 @@
+name: EasyModeration
+main: Rushil13579\EasyModeration\Main
+api: 3.0.0
+version: 1.0.0
+author: Rushil13579
+mcpe-protocol: [428]
+
+permissions:
+  easymoderation.ipban:
+    description: Allows a player to use the ipban command!
+  easymoderation.tempipban:
+    description: Allows a player to use the tempipban command!
+  easymoderation.ipunban:
+    description: Allows a player to use the ipunban command!
+  easymoderation.permban:
+    description: Allows a player to use the permban command!
+  easymoderation.tempban:
+    description: Allows a player to use the tempban command!
+  easymoderation.unban:
+    description: Allows a player to use the unban command!
+  easymoderation.kick:
+    description: Allows a player to use the kick command!
+  easymoderation.kickall:
+    description: Allows a player to use the kickall command!
+  easymoderation.mutechat:
+    description: Allows a player to use the mutechat command!
+  easymoderation.mutechat.bypass:
+    description: Allows a player to bypass mutechat restrictions!
+  easymoderation.warn:
+    description: Allows a player to use the warn command!
+  easymoderation.report:
+    description: Allows a player to use the report command!
+  easymoderation.alts:
+    descripiton: Allows a player to use the alts command!
+  easymoderation.spy:
+    description: Allows a player to use the spy command!
+  easymoderation.spy.exempt:
+    description: Exempts the commands of the player from spy!
+  easymoderation.staffchat:
+    description: Allows a player to use the staffchat command!
+  easymoderation.vanish:
+    description: Allows a player to use the vanish command!
+  easymoderation.freeze:
+    description: Allows a player to use the freeze command!
+  easymoderation.unfreeze:
+    description: Allows a player to use the unfreeze command!
+  easymoderation.chatcensor.bypass:
+    description: Allows a player to bypass chatcensor restrictions!
