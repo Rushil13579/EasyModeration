@@ -77,6 +77,95 @@ class EventListener implements Listener {
         unset($this->main->frozen[$player->getName()]);
     }
 
+    public function staffChat(PlayerChatEvent $ev){
+        if($ev->isCancelled()){
+            return null;
+        }
+
+        $player = $ev->getPlayer();
+        $msg = $ev->getMessage();
+
+        if($player->hasPermission('easymoderation.staffchat')){
+            $array = explode(' ', trim($msg));
+            $hash = $array[0];
+            if($hash == '#'){
+                $nmsg = str_replace('# ', '', $msg);
+                foreach($this->main->getServer()->getOnlinePlayers() as $pl){
+                    if($pl->hasPermission('easymoderation.staffchat')){
+                        $pl->sendMessage('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $nmsg);
+                    }
+                }
+                $this->main->getLogger()->info('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $nmsg);
+                $ev->setCancelled();
+
+            }
+        }
+
+        if(isset($this->main->staffchat[$player->getName()])){
+            foreach($this->main->getServer()->getOnlinePlayers() as $pl){
+                if($pl->hasPermission('easymoderation.staffchat')){
+                    $pl->sendMessage('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $msg);
+                }
+            }
+            $this->main->getLogger()->info('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $msg);
+            $ev->setCancelled();
+        }
+    }
+
+    public function isMutedChat(PlayerChatEvent $ev){
+        if($ev->isCancelled()){
+            return null;
+        }
+
+        $player = $ev->getPlayer();
+        $muteList = $this->main->getNameMutes();
+        $ipmuteList = $this->main->getIPMutes();
+
+        if($muteList->isBanned($player->getName())){
+
+            $entries = $muteList->getEntries();
+            $entry = $entries[strtolower($player->getName())];
+            $reason = $entry->getReason();
+            $muteMsg = '';
+
+            if($entry->getExpires() === null){
+                $muteMsg = "§4You are muted forever for §c$reason";
+            } else {
+                if($entry->hasExpired()){
+                    $muteList->remove($player->getName());
+                    return null;
+                }
+
+                $expiryToString = Expiry::expirationTimerToString($entry->getExpires(), new DateTime());
+                $muteMsg = "§4You are muted until §c$expiryToString §4for §c$reason";
+            }
+            $ev->setCancelled();
+            $player->sendMessage($muteMsg);
+        }
+
+        if($ipmuteList->isBanned($player->getAddress())){
+
+            $entries = $ipmuteList->getEntries();
+            $entry = $entries[strtolower($player->getAddress())];
+            $reason = $entry->getReason();
+            $muteMsg = '';
+
+            if($entry->getExpires() === null){
+                $muteMsg = "§4You are ip muted forever for §c$reason";
+            } else {
+                if($entry->hasExpired()){
+                    $ipmuteList->remove($player->getAddress());
+                    return null;
+                }
+
+                $expiryToString = Expiry::expirationTimerToString($entry->getExpires(), new DateTime());
+                $muteMsg = "§4You are ip muted until §c$expiryToString §4for §c$reason";
+            }
+            $ev->setCancelled();
+            $player->sendMessage($muteMsg);
+        }
+    }
+
     public function muteChat(PlayerChatEvent $ev){
         if($ev->isCancelled()){
             return null;
@@ -89,6 +178,21 @@ class EventListener implements Listener {
                 $player->sendMessage('§cGlobal chat is muted! You cannot talk!');
                 $ev->setCancelled();
                 return false;
+            }
+        }
+    }
+
+    public function frozenChat(PlayerChatEvent $ev){
+        if($ev->isCancelled()){
+            return null;
+        }
+
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->frozen[$player->getName()])){
+            if($this->main->cfg->get('disable-chat-while-frozen') == 'true'){
+                $player->sendMessage('§cYou cannot do this while being frozen');
+                $ev->setCancelled();
             }
         }
     }
@@ -141,87 +245,6 @@ class EventListener implements Listener {
         }
     }
 
-    public function staffChat(PlayerChatEvent $ev){
-        if($ev->isCancelled()){
-            return null;
-        }
-
-        $player = $ev->getPlayer();
-        $msg = $ev->getMessage();
-
-        if($player->hasPermission('easymoderation.staffchat')){
-            $array = explode(' ', trim($msg));
-            $hash = $array[0];
-            if($hash == '#'){
-                $nmsg = str_replace('# ', '', $msg);
-                foreach($this->main->getServer()->getOnlinePlayers() as $pl){
-                    if($pl->hasPermission('easymoderation.staffchat')){
-                        $pl->sendMessage('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $nmsg);
-                    }
-                }
-                $this->main->getLogger()->info('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $nmsg);
-                $ev->setCancelled();
-
-            }
-        }
-
-        if(isset($this->main->staffchat[$player->getName()])){
-            foreach($this->main->getServer()->getOnlinePlayers() as $pl){
-                if($pl->hasPermission('easymoderation.staffchat')){
-                    $pl->sendMessage('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $msg);
-                }
-            }
-            $this->main->getLogger()->info('§4[§cSC§4] §b> §6' . $player->getName() . ': §d' . $msg);
-            $ev->setCancelled();
-        }
-    }
-
-    public function frozenChat(PlayerChatEvent $ev){
-        if($ev->isCancelled()){
-            return null;
-        }
-
-        $player = $ev->getPlayer();
-
-        if(isset($this->main->frozen[$player->getName()])){
-            if($this->main->cfg->get('disable-chat-while-frozen') == 'true'){
-                $player->sendMessage('§cYou cannot do this while being frozen');
-                $ev->setCancelled();
-            }
-        }
-    }
-
-    public function isMutedChat(PlayerChatEvent $ev){
-        if($ev->isCancelled()){
-            return null;
-        }
-
-        $player = $ev->getPlayer();
-        $muteList = $this->main->getNameMutes();
-
-        if($muteList->isBanned($player->getName())){
-
-            $entries = $muteList->getEntries();
-            $entry = $entries[strtolower($player->getName())];
-            $reason = $entry->getReason();
-            $muteMsg = '';
-
-            if($entry->getExpires() === null){
-                $muteMsg = "§4You are muted forever for §c$reason";
-            } else {
-                if($entry->hasExpired()){
-                    $muteList->remove($player->getName());
-                    return null;
-                }
-
-                $expiryToString = Expiry::expirationTimerToString($entry->getExpires(), new DateTime());
-                $muteMsg = "§4You are muted until §c$expiryToString §4for §c$reason";
-            }
-            $ev->setCancelled();
-            $player->sendMessage($muteMsg);
-        }
-    }
-
     public function frozenMove(PlayerMoveEvent $ev){
         $player = $ev->getPlayer();
 
@@ -257,6 +280,18 @@ class EventListener implements Listener {
         }
     }
 
+    public function vanishDamage(EntityDamageEvent $ev){
+        $player = $ev->getEntity();
+
+        if(!$player instanceof Player){
+            return null;
+        }
+
+        if(isset($this->main->vanish[$player->getName()])){
+            $ev->setCancelled();
+        }
+    }
+
     public function frozenDamage(EntityDamageEvent $ev){
         $player = $ev->getEntity();
 
@@ -283,18 +318,6 @@ class EventListener implements Listener {
                     $ev->setCancelled();
                 }
             }
-        }
-    }
-
-    public function vanishDamage(EntityDamageEvent $ev){
-        $player = $ev->getEntity();
-
-        if(!$player instanceof Player){
-            return null;
-        }
-
-        if(isset($this->main->vanish[$player->getName()])){
-            $ev->setCancelled();
         }
     }
 
