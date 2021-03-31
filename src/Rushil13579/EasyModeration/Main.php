@@ -82,8 +82,8 @@ class Main extends PluginBase {
         $cmdMap->register('unban', new Unban($this));
         $cmdMap->register('kick', new Kick($this));
         $cmdMap->register('kickall', new Kickall($this));
-        //$cmdMap->register('ipmute', new IpMute($this));
-        //$cmdMap->register('ipunmute', new IpUnmute($this));
+        $cmdMap->register('ipmute', new IpMute($this));
+        $cmdMap->register('ipunmute', new IpUnmute($this));
         $cmdMap->register('mute', new Mute($this));
         $cmdMap->register('unmute', new Unmute($this));
         $cmdMap->register('mutelist', new Mutelist($this));

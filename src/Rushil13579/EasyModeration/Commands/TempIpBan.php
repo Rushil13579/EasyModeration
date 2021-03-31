@@ -45,7 +45,7 @@ class TempIpBan extends Command {
         $player = $this->main->getServer()->getPlayer($args[0]);
         $sendername = $sender->getName();
 
-        $ipbanList = $sender->getServer()->getIPBans();
+        $ipbanList = $this->main->getServer()->getIPBans();
 
         if($player != null){
             $target = $player->getAddress();
@@ -106,7 +106,7 @@ class TempIpBan extends Command {
                     }
                 }
                     
-                $msg = Main::PREFIX . " §aYou have IP Banned §6$ip belonging to §6$playername §afor §6$expiryToString §afor §6$reason";
+                $msg = Main::PREFIX . " §aYou have Temporarily IP Banned §6$ip belonging to §6$playername §afor §6$expiryToString §afor §6$reason";
                 $sender->sendMessage($msg);
     
                 if($this->main->cfg->get('tempipban-discord-post') == 'enabled'){
