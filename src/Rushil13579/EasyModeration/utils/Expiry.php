@@ -59,9 +59,6 @@ class Expiry {
 						if(!is_numeric($formatChars[$i + 1])){
 							switch(strtolower($formatChars[$i + 1])){
 								case 'o':
-									if(intval($currentChars) < 1){
-										throw new InvalidArgumentException($this->negval);
-									}
 									$month = intval($currentChars);
 									$currentChars = '';
 									break;
