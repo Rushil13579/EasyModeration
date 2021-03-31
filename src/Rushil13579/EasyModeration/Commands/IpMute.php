@@ -99,7 +99,7 @@ class IpMute extends Command {
                 foreach($this->main->getServer()->getOnlinePlayers() as $player){
                     if($player->getAddress() == $ip){
                         $msg = "§4You have been Permanently IP Muted!\nReason: $reason\nMuted By: $sendername";
-                        $player->kick($msg, false);
+                        $player->sendMessage($msg);
                     }
                 }
                 
@@ -153,7 +153,7 @@ class IpMute extends Command {
                     foreach($this->main->getServer()->getOnlinePlayers() as $player){
                         if($player->getAddress() == $ip){
                             $msg = "§4You have been Temporarily IP Muted!\n§cMute Time: $expiryToString\nReason: $reason\nMuted By: $sendername";
-                            $player->kick($msg, false);
+                            $player->sendMessage($msg);
                         }
                     }
                         

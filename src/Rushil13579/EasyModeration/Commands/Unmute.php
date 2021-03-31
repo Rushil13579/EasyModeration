@@ -37,13 +37,25 @@ class Unmute extends Command {
             return false;
         }
 
+        $player = $this->main->getServer()->getPlayer($args[0]);
+
+        if($player != null){
+            $playername = $player->getName();
+        } else {
+            $playername = $args[0];
+        }
+
         $muteList = $this->main->getNameMutes();
         if(!$muteList->isBanned($args[0])){
             $sender->sendMessage(Main::PREFIX . ' §cThis player is not muted');
             return false;
         }
 
-        $muteList->remove($args[0]);
+        $muteList->remove($playername);
+
+        if($player != null){
+            $player->sendMessage('§aYou have been unmuted!');
+        }
 
         $sender->sendMessage(Main::PREFIX . ' §aYou have successfully unmuted §6' . $args[0]);
 

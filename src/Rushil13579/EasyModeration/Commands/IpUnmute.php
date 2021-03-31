@@ -33,17 +33,29 @@ class IpUnmute extends Command {
         }
 
         if(count($args) < 1){
-            $sender->sendMessage(Main::PREFIX . ' §cUsage: /ipunmute <address>');
+            $sender->sendMessage(Main::PREFIX . ' §cUsage: /ipunmute <address|name>');
             return false;
         }
 
+        $player = $this->main->getServer()->getPlayer($args[0]);
+
+        if($player != null){
+            $ip = $player->getAddress();
+        } else {
+            $ip = $args[0];
+        }
+
         $ipmuteList = $this->main->getIPMutes();
-        if(!$ipmuteList->isBanned($args[0])){
+        if(!$ipmuteList->isBanned($ip)){
             $sender->sendMessage(Main::PREFIX . ' §cThis IP is not muted');
             return false;
         }
 
-        $ipmuteList->remove($args[0]);
+        $ipmuteList->remove($ip);
+
+        if($player != null){
+            $player->sendMessage('§aYou have been unmuted!');
+        }
 
         $sender->sendMessage(Main::PREFIX . ' §aYou have successfully unmuted §6' . $args[0]);
 

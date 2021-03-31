@@ -133,6 +133,7 @@ class EventListener implements Listener {
             } else {
                 if($entry->hasExpired()){
                     $muteList->remove($player->getName());
+                    $player->sendMessage('§aYour mute has expired!');
                     return null;
                 }
 
@@ -155,6 +156,7 @@ class EventListener implements Listener {
             } else {
                 if($entry->hasExpired()){
                     $ipmuteList->remove($player->getAddress());
+                    $player->sendMessage('§aYour ip mute has expired!');
                     return null;
                 }
 
