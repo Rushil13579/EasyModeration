@@ -91,7 +91,9 @@ class IpMute extends Command {
                 }
 
             } elseif ($player != null){
-                
+                $playername = $player->getName();
+                $ip = $player->getAddress();
+                    
                 $ipmuteList->addBan($ip, $reason, null, $sendername);
 
                 foreach($this->main->getServer()->getOnlinePlayers() as $player){
@@ -100,7 +102,7 @@ class IpMute extends Command {
                         $player->kick($msg, false);
                     }
                 }
-                    
+                
                 $msg = Main::PREFIX . " §aYou have Permanently IP Muted §6$ip belonging to §6$playername §afor §6$reason";
                 $sender->sendMessage($msg);
     
