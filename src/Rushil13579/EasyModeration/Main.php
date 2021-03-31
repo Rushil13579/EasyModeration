@@ -57,7 +57,7 @@ class Main extends PluginBase {
     }
 
     public function versionCheck(){
-        if($this->cfg->get('plugin-version') !== '1.1.0'){
+        if($this->cfg->get('plugin-version') !== '1.0.0'){
             $this->getLogger()->warning('§cThe configuration file for EasyModeration is outdated! Please delete it and restart the server to install the latest version!');
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
