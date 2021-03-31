@@ -51,6 +51,7 @@ class Unfreeze extends Command {
         }
 
         unset($this->main->frozen[$player->getName()]);
+        $player->setImmobile(false);
 
         if($this->main->cfg->get('freeze-tag') == 'true'){
             $player->setNameTag($player->getName());
