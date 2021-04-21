@@ -23,8 +23,7 @@ Commands | Aliases | Permissions | Usage
 /unmute | none | easymoderation.unmute | /unmute <name>
 /mutelist | none | easymoderation.mutelist | /mutelist [players|ips]
 /warn | none | easymoderation.warn | /warn <name> [reason...]
-
-## Explanation
+ 
 - For any time argument, y -> years, mo -> months, d -> days, h -> hours, m -> minutes, s ->seconds. Eg: /tempban Ign 1y6mo9d Reason
 - Incase of mute use [inf, infinite, perm, permanent, forever] for a perm mute
 - /mutelist gives a list of all muted players on the server
