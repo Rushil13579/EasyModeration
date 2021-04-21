@@ -72,7 +72,7 @@ class Mutelist extends Command implements PluginIdentifiableCommand {
 		$sender->sendMessage($message);
     }
 
-    public function getPlugin() : Main {
+    public function getPlugin() : Plugin {
         return $this->main;
     }
 }

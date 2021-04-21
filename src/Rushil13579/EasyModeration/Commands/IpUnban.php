@@ -58,7 +58,7 @@ class IpUnban extends Command implements PluginIdentifiableCommand {
         }
     }
 
-    public function getPlugin() : Main {
+    public function getPlugin() : Plugin {
         return $this->main;
     }
 }
