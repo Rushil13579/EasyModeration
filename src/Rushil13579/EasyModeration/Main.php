@@ -74,28 +74,28 @@ class Main extends PluginBase {
 
     public function registerCommands(){
         $cmdMap = $this->getServer()->getCommandMap();
-        $cmdMap->register('ipban', new IpBan($this));
-        $cmdMap->register('tempipban', new TempIpBan($this));
-        $cmdMap->register('ipunban', new IpUnban($this));
-        $cmdMap->register('permban', new Permban($this));
-        $cmdMap->register('tempban', new Tempban($this));
-        $cmdMap->register('unban', new Unban($this));
-        $cmdMap->register('kick', new Kick($this));
-        $cmdMap->register('kickall', new Kickall($this));
-        $cmdMap->register('ipmute', new IpMute($this));
-        $cmdMap->register('ipunmute', new IpUnmute($this));
-        $cmdMap->register('mute', new Mute($this));
-        $cmdMap->register('unmute', new Unmute($this));
-        $cmdMap->register('mutelist', new Mutelist($this));
-        $cmdMap->register('mutechat', new Mutechat($this));
-        $cmdMap->register('warn', new Warn($this));
-        $cmdMap->register('report', new Report($this));
-        $cmdMap->register('alts', new Alts($this));
-        $cmdMap->register('spy', new Spy($this));
-        $cmdMap->register('staffchat', new Staffchat($this));
-        $cmdMap->register('vanish', new Vanish($this));
-        $cmdMap->register('freeze', new Freeze($this));
-        $cmdMap->register('unfreeze', new Unfreeze($this));
+        $cmdMap->register('EasyModeration', new IpBan($this));
+        $cmdMap->register('EasyModeration', new TempIpBan($this));
+        $cmdMap->register('EasyModeration', new IpUnban($this));
+        $cmdMap->register('EasyModeration', new Permban($this));
+        $cmdMap->register('EasyModeration', new Tempban($this));
+        $cmdMap->register('EasyModeration', new Unban($this));
+        $cmdMap->register('EasyModeration', new Kick($this));
+        $cmdMap->register('EasyModeration', new Kickall($this));
+        $cmdMap->register('EasyModeration', new IpMute($this));
+        $cmdMap->register('EasyModeration', new IpUnmute($this));
+        $cmdMap->register('EasyModeration', new Mute($this));
+        $cmdMap->register('EasyModeration', new Unmute($this));
+        $cmdMap->register('EasyModeration', new Mutelist($this));
+        $cmdMap->register('EasyModeration', new Mutechat($this));
+        $cmdMap->register('EasyModeration', new Warn($this));
+        $cmdMap->register('EasyModeration', new Report($this));
+        $cmdMap->register('EasyModeration', new Alts($this));
+        $cmdMap->register('EasyModeration', new Spy($this));
+        $cmdMap->register('EasyModeration', new Staffchat($this));
+        $cmdMap->register('EasyModeration', new Vanish($this));
+        $cmdMap->register('EasyModeration', new Freeze($this));
+        $cmdMap->register('EasyModeration', new Unfreeze($this));
     }
 
     public static function getNameMutes() : MutedList {
