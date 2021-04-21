@@ -4,9 +4,10 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player,
-    Plugin
+    Player
 };
+
+use pocketmine\plugin\Plugin;
 
 use pocketmine\command\{
     Command,
