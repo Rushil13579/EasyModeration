@@ -4,19 +4,21 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use pocketmine\network\mcpe\protocol\LevelEventPacket;
 
 use Rushil13579\EasyModeration\Main;
 
-class Warn extends Command {
+class Warn extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -64,5 +66,9 @@ class Warn extends Command {
             $msg = "__**NEW WARN**__\nPlayer Warned: $playername\nWarned By: $sendername\nReason: $reason";
             $this->main->postToDiscord($webhook, $msg);
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

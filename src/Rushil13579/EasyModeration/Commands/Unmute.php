@@ -4,17 +4,19 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use Rushil13579\EasyModeration\Main;
 
-class Unmute extends Command {
+class Unmute extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -65,5 +67,9 @@ class Unmute extends Command {
             $msg = "__**NEW PLAYER UNMUTE**__\nPlayer Unmuted: $args[0]\nUnmuted By: " . $sender->getName();
             $this->main->postToDiscord($webhook, $msg);
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

@@ -4,17 +4,19 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use Rushil13579\EasyModeration\Main;
 
-class IpBan extends Command {
+class IpBan extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -106,6 +108,10 @@ class IpBan extends Command {
         } else {
             $sender->sendMessage(Main::PREFIX . ' §cAddress|Player not found');
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }
 

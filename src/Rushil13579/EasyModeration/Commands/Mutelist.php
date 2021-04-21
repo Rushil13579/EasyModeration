@@ -4,19 +4,21 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use pocketmine\permission\BanEntry;
 
 use Rushil13579\EasyModeration\Main;
 
-class Mutelist extends Command {
+class Mutelist extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -67,5 +69,9 @@ class Mutelist extends Command {
 
         $sender->sendMessage($countmsg);
 		$sender->sendMessage($message);
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

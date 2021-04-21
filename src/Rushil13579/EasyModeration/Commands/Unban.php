@@ -4,17 +4,19 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use Rushil13579\EasyModeration\Main;
 
-class Unban extends Command {
+class Unban extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -53,5 +55,9 @@ class Unban extends Command {
             $msg = "__**NEW PLAYER UNBAN**__\nPlayer Unbanned: $args[0]\nUnbanned By: " . $sender->getName();
             $this->main->postToDiscord($webhook, $msg);
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

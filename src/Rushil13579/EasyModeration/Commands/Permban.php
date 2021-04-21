@@ -4,17 +4,19 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use Rushil13579\EasyModeration\Main;
 
-class Permban extends Command {
+class Permban extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -74,5 +76,9 @@ class Permban extends Command {
             $msg = "__**NEW PERM BAN**__\nPlayer Banned: $playername\nBanned By: $sendername\nReason: $reason";
             $this->main->postToDiscord($webhook, $msg);
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

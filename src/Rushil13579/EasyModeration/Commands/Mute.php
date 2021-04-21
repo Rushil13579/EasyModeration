@@ -4,12 +4,14 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use DateTime;
@@ -18,7 +20,7 @@ use InvalidArgumentException;
 use Rushil13579\EasyModeration\Main;
 use Rushil13579\EasyModeration\utils\Expiry;
 
-class Mute extends Command {
+class Mute extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -105,5 +107,9 @@ class Mute extends Command {
                 $sender->sendMessage($msg->getMessage());
             }
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }

@@ -4,17 +4,19 @@ namespace Rushil13579\EasyModeration\Commands;
 
 use pocketmine\{
     Server,
-    Player
+    Player,
+    Plugin
 };
 
 use pocketmine\command\{
     Command,
-    CommandSender
+    CommandSender,
+    PluginIdentifiableCommand
 };
 
 use Rushil13579\EasyModeration\Main;
 
-class Kick extends Command {
+class Kick extends Command implements PluginIdentifiableCommand {
 
     /** @var Main */
     private $main;
@@ -64,5 +66,9 @@ class Kick extends Command {
             $msg = "__**NEW KICK**__\nPlayer Kicked: $playername\nKicked By: $sendername\nReason: $reason";
             $this->main->postToDiscord($webhook, $msg);
         }
+    }
+
+    public function getPlugin() : Main {
+        return $this->main;
     }
 }
