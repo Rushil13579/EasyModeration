@@ -3,7 +3,7 @@ main: Rushil13579\EasyModeration\Main
 api: 3.0.0
 version: 1.0.0
 author: Rushil13579
-mcpe-protocol: [431]
+mcpe-protocol: [440]
 
 permissions:
   easymoderation.ipban:
