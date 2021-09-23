@@ -1,7 +1,7 @@
 name: EasyModeration
 main: Rushil13579\EasyModeration\Main
 api: 3.0.0
-version: 1.0.0
+version: 1.1.2
 author: Rushil13579
 mcpe-protocol: [465]
 
