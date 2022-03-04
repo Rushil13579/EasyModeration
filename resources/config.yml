@@ -9,7 +9,7 @@ plugin-version: '1.0.0'
 
 # Words that will be censored in player chats [can be extends as long as you wish] [keep empty to disable]
 # Give permission 'easymoderation.chatcensor.bypass' to bypass it
-chat-censor: ['fuck', '.com', 'discord.gg']
+chat-censor: [ 'fuck', '.com', 'discord.gg' ]
 
 
 # ========== CHAT INTERVAL ==========

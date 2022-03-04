@@ -1,9 +1,8 @@
 name: EasyModeration
 main: Rushil13579\EasyModeration\Main
-api: 3.0.0
-version: 1.1.3
+api: 4.0.0
+version: 1.0.0
 author: Rushil13579
-mcpe-protocol: [471]
 
 permissions:
   easymoderation.ipban:
