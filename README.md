@@ -1,5 +1,5 @@
 # EasyModeration
-An all-in-one Moderation plugin for Pocketmine-MP
+An all-in-one Moderation plugin for Pocketmine-MP 4.0.0+
 
 - If you have any suggestions/ideas/questions/bugs go [here](https://github.com/Rushil13579/EasyModeration/issues) or contact me on discord at **Rushil#2326**
 
