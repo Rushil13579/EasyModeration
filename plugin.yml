@@ -7,23 +7,34 @@ author: Rushil13579
 permissions:
   easymoderation.ipban:
     description: Allows a player to use the ipban command!
+    default: op
   easymoderation.ipunban:
     description: Allows a player to use the ipunban command!
+    default: op
   easymoderation.permban:
     description: Allows a player to use the permban command!
+    default: op
   easymoderation.tempban:
     description: Allows a player to use the tempban command!
+    default: op
   easymoderation.unban:
     description: Allows a player to use the unban command!
+    default: op
   easymoderation.kick:
     description: Allows a player to use the kick command!
+    default: op
   easymoderation.mute:
     description: Allows a player to use the mute command!
+    default: op
   easymoderation.unmute:
     description: Allows a player to use the unmute command!
+    default: op
   easymoderation.mutelist:
     description: Allows a player to use the mutelist command!
+    default: op
   easymoderation.warn:
     description: Allows a player to use the warn command!
+    default: op
   easymoderation.chatcensor.bypass:
     description: Allows a player to bypass chatcensor restrictions!
+    default: op
